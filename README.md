@@ -2,6 +2,8 @@
 
   Clone this repo
  
+  Open target componment 
+ 
   Run npm install 
   
   Run npm start
