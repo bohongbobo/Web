@@ -1,17 +1,19 @@
 {
-  "name": "todolist",
+  "name": "movies_redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "magic.css": "^1.4.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-flip-move": "^3.0.4",
-    "react-scripts": "^3.4.3",
-    "shortid": "^2.2.15"
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

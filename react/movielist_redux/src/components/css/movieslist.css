@@ -1,0 +1,49 @@
+.page-control {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 15%;
+  min-height: 500px;
+  max-height: 30%;
+  margin: 1vw;
+}
+
+.card .card-content {
+  margin-bottom: 5vh;
+  padding: 30px 15px 15px;
+}
+
+.card .card-content .card-title {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 18px;
+  overflow: hidden;
+  color: black;
+}
+
+.card .card-title.activator {
+  margin: 0;
+}
+
+.card .card-action {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.activator {
+  cursor: pointer;
+}

@@ -52,8 +52,12 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <input type="text" value={this.state.searchInput} onChange={this.handleChange} />
-        {this.showOutput()}
+        <div className="input">
+          <h3>Auto Complete</h3>
+          <p>Enter text</p>
+          <input type="text" value={this.state.searchInput} onChange={this.handleChange} />
+          {this.showOutput()}
+        </div>
       </div>
     );
   }

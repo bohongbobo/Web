@@ -1,0 +1,36 @@
+html {
+  background-color: black;
+}
+.App {
+  text-align: center;
+}
+.movie-list-menu a {
+  cursor: auto;
+}
+
+.movie-list-menu h3 {
+  font-family: "Fredoka One", cursive, Arial, sans-serif;
+  width: fit-content;
+  margin: 2% auto;
+  font-size: 4rem;
+  cursor: pointer;
+  background: linear-gradient(to right, rgba(192, 254, 207, 1) 0%, rgba(1, 180, 228, 1) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome {
+  font-family: "Patua One", cursive;
+}
+
+.close-sidenav {
+  cursor: pointer;
+  /* display: block; */
+  position: absolute;
+  right: 0;
+  margin: 10px 15px;
+}
+
+.sidenav-content {
+  margin-top: 10%;
+}
