@@ -1,0 +1,100 @@
+#flyoutMenu {
+  width: 30vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  z-index: 1000;
+  padding: 2% 0;
+  text-align: center;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+#flyoutMenu.hidden {
+  transform: translate3d(-30vw, 0, 0);
+  -webkit-transform: translate3d(-30vw, 0, 0);
+  -moz-transform: translate3d(-30vw, 0, 0);
+  -ms-transform: translate3d(-30vw, 0, 0);
+  -o-transform: translate3d(-30vw, 0, 0);
+}
+
+#flyoutMenu.visible {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
+  -webkit-transform: translate3d(0vw, 0, 0);
+  -moz-transform: translate3d(0vw, 0, 0);
+  -ms-transform: translate3d(0vw, 0, 0);
+  -o-transform: translate3d(0vw, 0, 0);
+}
+
+#flyoutMenu a {
+  color: #fff;
+  font-family: sans-serif, Arial, Helvetica;
+  text-decoration: none;
+}
+
+#flyoutMenu a:hover {
+  text-decoration: underline;
+}
+.menuContent {
+  display: flex;
+  flex-direction: column;
+}
+.menuItem {
+  font-size: larger;
+  font-weight: bold;
+
+  border-bottom: solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 0;
+}
+
+.menuItem:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+i.material-icons {
+  position: absolute;
+  margin: 0;
+  cursor: pointer;
+  left: 25vw;
+  top: 2vh;
+}
+
+@media only screen and (max-width: 600px) {
+  #flyoutMenu {
+    width: 100vw;
+    height: 100vh;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+  }
+  #flyoutMenu.hidden {
+    transform: translate3d(-100vw, 0, 0);
+    -webkit-transform: translate3d(-100vw, 0, 0);
+    -moz-transform: translate3d(-100vw, 0, 0);
+    -ms-transform: translate3d(-100vw, 0, 0);
+    -o-transform: translate3d(-100vw, 0, 0);
+  }
+
+  #flyoutMenu.visible {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+    -webkit-transform: translate3d(0vw, 0, 0);
+    -moz-transform: translate3d(0vw, 0, 0);
+    -ms-transform: translate3d(0vw, 0, 0);
+    -o-transform: translate3d(0vw, 0, 0);
+  }
+  i.material-icons {
+    left: 90vw;
+    top: 2vh;
+  }
+}

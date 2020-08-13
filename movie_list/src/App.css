@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+}
+
+.card-panel {
+  border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+}
+
+#title {
+  margin: 0;
+  font-family: "Itim", cursive;
+  cursor: pointer;
+}
+
+#title:hover {
+  text-shadow: 5px 5px 5px #797979;
+}
+
+.goTop i.material-icons {
+  z-index: 10;
+  position: fixed;
+  padding: 5px;
+  top: 85%;
+  left: 92%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .goTop i.material-icons {
+    left: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .goTop i.material-icons {
+    left: 80%;
+  }
+}

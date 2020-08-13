@@ -1,0 +1,19 @@
+body {
+  background-color: #2fc3df;
+}
+
+.App {
+  text-align: center;
+}
+
+.pics {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto 10%;
+}
+
+img {
+  width: 200px;
+  padding: 10px;
+}

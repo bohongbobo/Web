@@ -1,0 +1,41 @@
+#pageBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.searchContainer i.material-icons {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.likeMovie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.blockedMovie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+@media only screen and (max-width: 600px) {
+  .searchContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
