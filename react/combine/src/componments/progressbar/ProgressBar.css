@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+.buttons {
+  margin: 10px auto;
+}
+
+.ProgressBarborder {
+  display: flex;
+  margin: 20px auto;
+  border: 2px solid black;
+  height: 30px;
+  width: 50%;
+  overflow: hidden;
+  background-color: rgba(128, 128, 128, 0.3);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}

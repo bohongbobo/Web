@@ -1,0 +1,15 @@
+#seachInput {
+  width: 20%;
+  height: auto;
+}
+
+img {
+  width: 200px;
+  padding: 10px;
+}
+.pics {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto 10%;
+}

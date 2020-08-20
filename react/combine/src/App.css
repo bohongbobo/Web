@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.close-sidenav {
+  cursor: pointer;
+  /* display: block; */
+  position: absolute;
+  right: 0;
+  margin: 10px 15px;
+}
+
+.sidenav-content {
+  margin-top: 10%;
+}
