@@ -20,9 +20,6 @@ function App() {
           <Route exact path="/carousel">
             <Carousel />
           </Route>
-          <Route exact path="/inputtag">
-            <InputTag />
-          </Route>
           <Route exact path="/controlledprogressbar">
             <ControlledProgressBar />
           </Route>

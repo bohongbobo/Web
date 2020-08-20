@@ -25,7 +25,6 @@ const SideNav = () => {
           <Link to="/">Home Page</Link>
           <Link to="/autocompelete">Auto Compelete</Link>
           <Link to="/carousel">Carousel</Link>
-          <Link to="/inputtag">Input Tag</Link>
           <Link to="/controlledprogressbar">Controlled Progress Bar</Link>
           <Link to="/SearchMeal">Search Meal</Link>
         </li>
