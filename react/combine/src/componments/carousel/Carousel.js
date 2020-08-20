@@ -1,27 +1,21 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import "./Carousel.css";
 
-export default class Carousel extends Component {
-  state = {
-    photos: [],
-    index: 1,
-  };
+const Carousel = () => {
+  const [photos, setphotos] = useState([]);
+  const [index, setindex] = useState(1);
 
-  componentDidMount = () => {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/photos")
       .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          photos: data,
-        })
-      );
-  };
+      .then((data) => setphotos(data));
+  }, []);
 
-  showImg = () => {
+  const showImg = () => {
     let temp = "";
     let tempTitle = "";
-    this.state.photos.forEach((photo, index) => {
-      if (photo.id === this.state.index) {
+    photos.forEach((photo, count) => {
+      if (photo.id === index) {
         temp = photo.url;
         tempTitle = photo.title;
       }
@@ -29,50 +23,47 @@ export default class Carousel extends Component {
     return <img src={temp} alt={tempTitle} />;
   };
 
-  showLast = () => {
-    if (this.state.index > 1) {
-      this.setState({
-        index: this.state.index - 1,
-      });
+  const showLast = () => {
+    if (index > 1) {
+      setindex(index - 1);
     }
     // console.log(this.state.index)
   };
 
-  showNext = () => {
-    this.setState({
-      index: this.state.index + 1,
-    });
+  const showNext = () => {
+    setindex(index + 1);
+
     // console.log(this.state.index)
   };
 
-  search = (e) => {
+  const search = (e) => {
     if (e.key === "Enter") {
       if (e.target.value >= 1) {
-        this.setState({ index: Number(e.target.value) });
+        setindex(Number(e.target.value));
       }
     }
   };
 
-  render() {
-    // console.log(this.state.photo[this.state.index])
-    // const { photos, index } = this.state;
-    return (
-      <div className="App">
-        <h3>Carousel</h3>
-        <input
-          id="carousel-input"
-          placeholder="Enter a number"
-          type="number"
-          onKeyPress={(e) => this.search(e)}
-        />
-        <br />
-        <br />
-        <div className="main">
-          <button onClick={this.showLast}>Last</button>
-          {this.showImg()}
-          <button onClick={this.showNext}>next</button>
-        </div>
+  // console.log(this.state.photo[this.state.index])
+  // const { photos, index } = this.state;
+  return (
+    <div className="App">
+      <h3>Carousel</h3>
+      <input
+        id="carousel-input"
+        placeholder="Enter a number"
+        type="number"
+        onKeyPress={(e) => search(e)}
+      />
+      <br />
+      <br />
+      <div className="main">
+        <button onClick={showLast}>Last</button>
+        {showImg()}
+        <button onClick={showNext}>next</button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Carousel;

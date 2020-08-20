@@ -1,32 +1,27 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./SearchMeal.css";
 
-export default class SearchMeal extends Component {
-  state = {
-    seachInput: "",
-    meals: [],
-    toShow: false,
-  };
-  handleChange = (e) => {
-    this.setState({
-      seachInput: e.target.value,
-      toShow: true,
-    });
+const SearchMeal = () => {
+  const [seachInput, setseachInput] = useState("");
+  const [meals, setmeals] = useState([]);
+  const [toShow, settoShow] = useState(false);
+
+  const handleChange = (e) => {
+    setseachInput(e.target.value);
+    settoShow(true);
   };
 
-  componentDidMount = () => {
+  useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=")
       .then((res) => res.json())
       .then((data) => {
-        this.setState({
-          meals: data.meals,
-        });
+        setmeals(data.meals);
       });
-  };
+  }, []);
 
-  filteredPics = () => {
-    const filteredPics = this.state.meals.filter((meal) =>
-      meal.strMeal.toLowerCase().includes(this.state.seachInput.toLowerCase())
+  const filteredPics = () => {
+    const filteredPics = meals.filter((meal) =>
+      meal.strMeal.toLowerCase().includes(seachInput.toLowerCase())
     );
 
     return filteredPics.map((meal) => (
@@ -36,15 +31,13 @@ export default class SearchMeal extends Component {
     ));
   };
 
-  render() {
-    return (
-      <div>
-        <h3>Meal Finder</h3>
-        <input id="seachInput" onChange={this.handleChange} />
-        <div className="pics">
-          {this.state.toShow === true && this.state.seachInput !== "" ? this.filteredPics() : ""}
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h3>Meal Finder</h3>
+      <input id="seachInput" onChange={handleChange} />
+      <div className="pics">{toShow === true && seachInput !== "" ? filteredPics() : ""}</div>
+    </div>
+  );
+};
+
+export default SearchMeal;

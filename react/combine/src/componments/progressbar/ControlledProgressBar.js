@@ -1,59 +1,35 @@
-import React, { Component } from "react";
-import FunctionalProgressBar from "./FunctionalProgressBar";
+import React, { useState } from "react";
 import ProgressBar from "./Progressbar";
 import "./ProgressBar.css";
 
-export default class ControlledProgressbar extends Component {
-  state = {
-    progress: 0,
-  };
+const ControlledProgressbar = () => {
+  const [progress, setProgress] = useState(0);
 
-  // componentDidMount = () => {
-  //   if (this.state.progress >= 0) {
-  //     setInterval(this.increase, 100);
-  //   }
-  // };
-
-  // componentDidUpdate = () => {
-  //   if (this.state.progress >= 100) {
-  //     setInterval(this.decrease, 100);
-  //   } else if (this.state.progress <= 0) {
-  //     setInterval(this.increase, 100);
-  //   }
-  // };
-
-  decrease = () => {
-    if (this.state.progress > 0) {
-      let progress = Number(this.state.progress - 5);
-      this.setState({
-        progress,
-      });
-      console.log(this.state.progress, "decrease");
+  const decrease = () => {
+    if (progress > 0) {
+      setProgress(Number(progress - 5));
+      console.log(progress, "decrease");
     }
   };
 
-  increase = () => {
-    if (this.state.progress < 100) {
-      let progress = Number(this.state.progress + 5);
-      this.setState({
-        progress,
-      });
-      console.log(this.state.progress, "increase");
+  const increase = () => {
+    if (progress < 100) {
+      setProgress(Number(progress + 5));
+      console.log(progress, "increase");
     }
   };
 
-  render() {
-    return (
-      <div className="App">
-        <div className="buttons">
-          <button onClick={this.decrease}>Decrease</button>
-          <button onClick={this.increase}>Increase</button>
-        </div>
-        <div className="ProgressBarborder">
-          <ProgressBar progress={this.state.progress} />
-        </div>
-        <FunctionalProgressBar />
+  return (
+    <div className="App">
+      <div className="buttons">
+        <button onClick={decrease}>Decrease</button>
+        <button onClick={increase}>Increase</button>
       </div>
-    );
-  }
-}
+      <div className="ProgressBarborder">
+        <ProgressBar progress={progress} />
+      </div>
+    </div>
+  );
+};
+
+export default ControlledProgressbar;

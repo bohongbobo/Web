@@ -1,6 +1,9 @@
 .autocompelete {
   text-align: center;
+  /* margin: 5% auto; */
+}
+
+#autoinput {
   width: 30%;
   height: auto;
-  margin: 5% auto;
 }

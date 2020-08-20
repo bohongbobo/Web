@@ -1,68 +1,53 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./AutoCompelete.css";
 
-export default class AutoCompelete extends Component {
-  state = {
-    users: [],
-    searchInput: "",
-    getTarget: false,
-  };
-  handleChange = (e) => {
-    this.setState({
-      searchInput: e.target.value,
-      getTarget: true,
-    });
+const AutoCompelete = () => {
+  const [users, setUsers] = useState([]);
+  const [searchInput, setsearchInput] = useState("");
+  const [getTarget, setgetTarget] = useState(false);
+
+  const handleChange = (e) => {
+    setsearchInput(e.target.value);
+    setgetTarget(true);
   };
 
-  componentDidMount = () => {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          users: data,
-        })
-      );
+      .then((data) => setUsers(data));
+  }, []);
+
+  const handleClick = (e) => {
+    setsearchInput(e.target.innerText);
+    setgetTarget(!getTarget);
   };
 
-  handleClick = (e) => {
-    this.setState({
-      searchInput: e.target.innerText,
-      getTarget: !this.state.getTarget,
-    });
-  };
-
-  searchOutput = () => {
-    const filteredUser = this.state.users.filter((user) =>
-      user.name.toLowerCase().includes(this.state.searchInput.toLowerCase())
+  const searchOutput = () => {
+    const filteredUser = users.filter((user) =>
+      user.name.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     const searchTarget = filteredUser.map((user) => (
-      <p key={user.id} onClick={this.handleClick}>
+      <p key={user.id} onClick={handleClick}>
         {user.name}
       </p>
     ));
     return searchTarget;
   };
 
-  showOutput = () => {
-    return !this.state.getTarget || this.state.searchInput === "" ? "" : this.searchOutput();
+  const showOutput = () => {
+    return !getTarget || searchInput === "" ? "" : searchOutput();
   };
 
-  render() {
-    return (
-      <div className="autocompelete">
-        <div className="input">
-          <h4>Auto Complete</h4>
-          <p>Enter text</p>
-          <input
-            className="autoinput"
-            type="text"
-            value={this.state.searchInput}
-            onChange={this.handleChange}
-          />
-          {this.showOutput()}
-        </div>
+  return (
+    <div className="autocompelete">
+      <div className="input">
+        <h4>Auto Complete</h4>
+        <p>Enter text</p>
+        <input id="autoinput" type="text" value={searchInput} onChange={handleChange} />
+        {showOutput()}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+export default AutoCompelete;
