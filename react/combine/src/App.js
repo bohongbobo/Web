@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./componments/ManPage";
 import AutoCompelete from "./componments/autocompelete/AutoCompelete";
 import Carousel from "./componments/carousel/Carousel";
-import InputTag from "./componments/inputtag/InputTag";
 import ControlledProgressBar from "./componments/progressbar/ControlledProgressBar";
 import SearchMeal from "./componments/searchmeal/SearchMeal";
 
